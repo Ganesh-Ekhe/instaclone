@@ -20,7 +20,7 @@ const ChatPage = () => {
   const sendMessageHandler = async (receiverId) => {
     try {
       const res = await axios.post(
-        `http://localhost:8000/api/v1/message/send/${receiverId}`,
+        `https://instaclone-kc0q.onrender.com/api/v1/message/send/${receiverId}`,
         { textMessage },
         {
           headers: {
@@ -53,8 +53,7 @@ const ChatPage = () => {
           {suggestedUsers.map((suggestedUser) => {
             const isOnline = onlineUsers.includes(suggestedUser?._id);
             return (
-              <div
-                onClick={() => dispatch(setSelectedUser(suggestedUser))}
+              <div onClick={() => dispatch(setSelectedUser(suggestedUser))}
                 className="flex gap-3 items-center p-3 hover:bg-gray-50 cursor-pointer"
               >
                 <Avatar className="w-14 h-14">
